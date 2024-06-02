@@ -1,0 +1,26 @@
+ <%- include('./partials/header'); %>
+ <h1>Adding a new Quote</h1>
+ 
+  <form method="POST" action="/quote/new">
+  <textarea name = "quote">
+  </textarea> <br>
+  <select name = "authorId">
+    <% for(let i= 0; i < authors.length; i++){ %>
+    <option value  = "<%=authors[i].authorId%>"><%=authors[i].firstName %> <%=authors[i].lastName %> </option>
+    <% } %>
+  </select>
+  <select name = "category">
+    <option value = "Freedom"> Freedom </option>
+    <option value = "Inspirational"> Inspirational </option>
+    <option value = "Life"> Life </option>
+    <option value = "Moral"> Moral </option>
+    <option value = "Motivational"> Motivational </option>
+    <option value = "Wisdom"> Wisdom </option>
+  </select>
+  
+   <button> Add Quote </button>
+ </form>
+ <% if (typeof message != "undefined"){ %>
+  	<h3><%=message%></h3>
+ <% } %>
+  <%- include('./partials/footer'); %>
